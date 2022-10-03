@@ -8,43 +8,75 @@
   </head>
   <body>
     <div class="main">
+      <div class="header">
 
-      <div class="player_container">
-
-        <!-- Player Button and Progress Bar -->
-
-        <div class="buttonCircle">
-
-          <div class="outer">
-
-            <i class="fa fa-play"></i>
-
-          </div>
-
+        <div class="headerRight">
+            <i class="fa fa-fast-backward fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-play fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-fast-forward fa-2x" aria-hidden="true"></i>
         </div>
-
-        <h2 class="songname">song title</h2>
-        <h3 class="artistname">Artist name</h3>
-
-        <div class="player">
-          <div class="progressbar">
-            progressbar
-          </div>
-          <div class="image_conainer">
-            <div class="image">
-              img
-            </div>
-            <div class="controlers">
-              controlers
-            </div>
-
-          </div>
-
+        <div class="headerCenter">
+          <h5>Song title</h5>
+          <small>More details</small>
+        </div>
+        <div class="headerLeft">
+          <label for="progressBar"><i class="fa fa-volume-up" aria-hidden="true"></i></label>
+          <progress id="progressBar" value="32" max="100"> 32% </progress>
         </div>
 
       </div>
-      <div class="music_list">
-        List lknsdkjfne jnajne jbe
+      <div class="container">
+
+        <div class="musicImage">
+          <i class="fa fa-music fa-3x" aria-hidden="true"></i>
+        </div>
+        <div class="musicList">
+          <div class="navBar">
+            <div class="Songs">Songs</div>
+            <div class="Playlists">Playlist</div>
+          </div>
+
+          <div class="musicItem">
+            <div class="musicItem1">
+              <h4 class="title">Song title</h4>
+              <p>Artist: Big man</p>
+            </div>
+            <div class="musicItem2">
+              <span>12:34</span>
+            </div>
+          </div>
+
+          <div class="musicItem">
+            <div class="musicItem1">
+              <h4 class="title">Song title</h4>
+              <p>Artist: Big man</p>
+            </div>
+            <div class="musicItem2">
+              <span>12:34</span>
+            </div>
+          </div>
+
+          <div class="musicItem">
+            <div class="musicItem1">
+              <h4 class="title">Song title</h4>
+              <p>Artist: Big man</p>
+            </div>
+            <div class="musicItem2">
+              <span>12:34</span>
+            </div>
+          </div>
+
+          <div class="musicItem">
+            <div class="musicItem1">
+              <h4 class="title">Song title</h4>
+              <p>Artist: Big man</p>
+            </div>
+            <div class="musicItem2">
+              <span>12:34</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   <script src="app.js" charset="utf-8"></script>
