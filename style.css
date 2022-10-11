@@ -1,0 +1,173 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --grey: #252728;
+  --greyDrak: #202020;
+  --greyLight: #6e6e6e;
+  --greyLighter: #939395;
+  --blue: #0075ff;
+  --yellow: #FFD24C;
+  --darkYellow: #6b5617;
+  --white: #fff;
+}
+
+body{
+  background: var(--grey);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#audio{
+  display: none;
+}
+
+.main{
+  width: 700px;
+  margin: 0px auto;
+  height: 100vh;
+}
+
+.header{
+  background: var(--greyDrak);
+  padding: 10px;
+}
+
+.header{
+  display: flex;
+}
+
+.headerRight{
+  flex: 3;
+  color: var(--yellow);
+  text-align: center;
+  align-items: center;
+  align-self: center;
+}
+
+.fa-fast-backward{
+  margin-right: 20px;
+}
+.fa-fast-forward{
+  margin-left: 20px;
+}
+
+.headerLeft{
+  flex: 3;
+  color: var(--greyLighter);
+  text-align: center;
+  align-items: center;
+  align-self: center;
+}
+
+.headerCenter{
+  flex: 4;
+  color: var(--greyLighter);
+}
+
+.headerCenter small{
+  display: block
+}
+
+.headerCenter progress{
+  height: 5px;
+  width: 100%;
+  accent-color: var(--yellow);
+}
+
+
+.container{
+  width: 100%;
+  display: flex;
+  margin-top: 20px
+}
+
+.musicImage{
+  flex: 4;
+  text-align: center;
+  padding-top: 70px
+}
+
+.musicList{
+  flex: 8;
+}
+
+.musicItem{
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid var(--greyLight);
+  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  color: var(--yellow);
+  transition: 0.3s ease;
+}
+
+.musicItem i{
+  display: none;
+  color: var(--white);
+}
+
+.musicItem:hover{
+  background: var(--darkYellow);
+  cursor: pointer;
+}
+
+.musicItem:hover i{
+  display: inline;
+}
+
+.musicItem h4{
+  color: var(--greyLight);
+  font-size: 25px;
+  font-weight: lighter;
+}
+
+.musicItem p{
+  color: var(--greyLighter)
+}
+
+.musicItem1{
+  flex: 10
+}
+.musicItem2{
+  flex: 2
+}
+.musicItem span{
+  color: var(--yellow);
+}
+
+#progressBar{
+  accent-color: var(--yellow);
+}
+
+.navBar{
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px
+}
+.Songs, .Playlists{
+  flex: 1;
+  text-align: center;
+  padding: 30px;
+  background-color: var(--yellow);
+}
+.Songs{
+  border-right: 1px solid var(--greyDrak);
+}
+
+.hide{
+  display: none;
+}
+
+.button{
+  padding: 15px;
+  background: none;
+  border: 1px solid var(--yellow);
+  border-radius: 5px;
+  color: var(--yellow);
+  margin-top: 50px;
+  display: inline-block;
+  cursor: pointer;
+}
