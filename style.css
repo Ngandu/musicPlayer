@@ -14,7 +14,8 @@
 }
 
 body{
-  background: var(--grey);
+  background: var(--grey) url('background.jpg') fixed center no-repeat;
+  background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -26,6 +27,7 @@ body{
   width: 700px;
   margin: 0px auto;
   height: 100vh;
+  background: var(--greyDrak);
 }
 
 .header{
@@ -93,10 +95,9 @@ body{
 }
 
 .musicItem{
-  width: 100%;
+  width: 98%;
   display: flex;
   border-bottom: 1px solid var(--greyLight);
-  padding-bottom: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 10px;
@@ -170,4 +171,5 @@ body{
   margin-top: 50px;
   display: inline-block;
   cursor: pointer;
+  margin-left: 20px
 }

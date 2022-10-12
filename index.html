@@ -9,7 +9,6 @@
   <body>
     <!-- Audio elelment -->
     <audio id="audio" src="" ontimeupdate="updateTimer(this)"></audio>
-    <audio id="audioTemp" src=""></audio>
 
     </audio>
     <div class="main">
@@ -36,7 +35,6 @@
         <div class="musicList">
           <div class="navBar">
             <div class="Songs" id="showSongs">Songs</div>
-            <div class="Playlists" id="showPlaylist">Playlist</div>
           </div>
 
           <div id="songsSegment">
@@ -45,33 +43,13 @@
             <div class="SongList">
               <div class="musicItem">
                 <div class="musicItem1">
-                  <h4 class="title"><span>Add Songs</span></h4>
-                  <!-- <p>Artist: Big man</p> -->
+                  <h4 class="title"><span>Playlist currently empty.</span></h4>
                 </div>
-                <!-- <div class="musicItem2">
-                  <span>12:34</span>
-                </div> -->
               </div>
             </div>
 
-            <label class="button" id="addSongBtn" for="fileSongs">Add Song</label>
+            <label class="button" id="addSongBtn" for="fileSongs">Add Song to the list</label>
             <input type="file" id="fileSongs" onchange="new_add_song(this); return false;" style="display: none" />
-            <button type="button" class="button hide" id="savePlaylistBtn"><i class="fa fa-save"></i> Save as Playlist</button>
-          </div>
-
-          <div id="playlistSegment" class="hide">
-
-            <h2>Playlist</h2>
-            <div class="musicItem">
-              <div class="musicItem1">
-                <h4 class="title">Song title</h4>
-                <p>Artist: Big man</p>
-              </div>
-              <div class="musicItem2">
-                <span>12:34</span>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>

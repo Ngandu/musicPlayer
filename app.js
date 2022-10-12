@@ -4,14 +4,14 @@ const songsSegment = document.querySelector("#songsSegment");
 const songList = document.querySelector(".SongList");
 const showSongs = document.querySelector("#showSongs");
 const playlistSegment = document.querySelector("#playlistSegment");
-const showPlaylist = document.querySelector("#showPlaylist");
 const songProgress = document.querySelector("#songProgress");
 const songTitle = document.querySelector("#songTitle");
 const minutesTime = document.querySelector("#minutesTime");
 const secondsTime = document.querySelector("#secondsTime");
 const progressBar = document.querySelector("#progressBar");
 const listTitle = document.querySelector(".title");
-const savePlaylistBtn = document.querySelector("#savePlaylistBtn");
+const nextBtn = document.querySelector(".fa-fast-forward");
+const prevBtn = document.querySelector(".fa-fast-backward");
 
 let duration = 0;
 let durationMinutes = 0;
@@ -19,12 +19,14 @@ let durationSeconds = 0;
 
 
 let songs = [];
+let songPlayingIndex = 0;
 
 // Play Song from List
 
 function playSong(i){
 
   let file = songs[i];
+  songPlayingIndex = i;
   // let url = URL.createObjectURL(file);
   audio.src = file.url;
   audio.title = file.name;
@@ -32,6 +34,9 @@ function playSong(i){
   audio.play();
   playButton.classList.add('hide');
   pauseButton.classList.remove('hide');
+  let d = parseInt(audio.duration);
+  duration = d;
+  changeDurationDisplay(d);
 }
 
 // Change the name of currently playing song
@@ -46,8 +51,10 @@ function changeDurationDisplay(d){
   minutesTime.innerHTML = durationMinutes;
   secondsTime.innerHTML = durationSeconds;
 
-  let progress = (100 * d) / duration;
+  // console.log('audio.duration', audio.duration);
+  let progress = (100 * d) / audio.duration;
   songProgress.setAttribute("value",progress);
+  // console.log('duration: ',duration);
 
 }
 
@@ -88,16 +95,38 @@ pauseButton.addEventListener('click', ()=>{
   audio.pause();
 })
 
+// When Audio reach the end
+audio.addEventListener("ended",()=>playNextSong());
+// Next song
+nextBtn.addEventListener('click', ()=>playNextSong())
+
+function playNextSong(){
+  if(songs.length > songPlayingIndex + 1){
+    // alert('There is a next song');
+    playSong(songPlayingIndex + 1);
+  }else{
+      // alert('No next song');
+  }
+}
+
+// Previous song
+prevBtn.addEventListener('click', ()=>playPreviousSong())
+
+function playPreviousSong(){
+  if(songPlayingIndex !== 0 && songs.length > 1){
+    alert('There is a previous song');
+    playSong(songPlayingIndex - 1);
+  }else{
+      alert('No previous song');
+  }
+}
+
 
 
 // Display Song on Playlist
 showSongs.addEventListener('click',()=>{
   playlistSegment.classList.add('hide');
   songsSegment.classList.remove('hide');
-})
-showPlaylist.addEventListener('click',()=>{
-songsSegment.classList.add('hide');
-  playlistSegment.classList.remove('hide');
 })
 
 
@@ -112,9 +141,6 @@ function new_add_song(e){
   let temp = {name, url};
     songs.push(temp);
     refreshList()
-    // audio.src = url;
-    // audio.title = file.name.replace(/\.[^/.]+$/, "");
-    // changePlayingName(file.name.replace(/\.[^/.]+$/, ""));
 
   }
 
@@ -124,10 +150,6 @@ function new_add_song(e){
 // Render Songs on the musicList
 
 const songMusicListRender = ()=>{
-
-  if(songs.length > 0){
-    savePlaylistBtn.classList.remove('hide');
-  }
 
   for(i in songs){
     let sg = songs[i];
@@ -151,31 +173,3 @@ const refreshList = () =>{
   // re-render the list
   songMusicListRender();
 }
-
-
-// Save playost
-savePlaylistBtn.addEventListener('click', ()=>{
-    let data = JSON.stringify(songs);
-    localStorage.setItem("black&Yellow", data);
-})
-
-const init = async()=>{
-
-  // Check if there is data in the localstorage
- let localData = await localStorage.getItem("black&Yellow");
- console.log("localData: ",localData);
-
- let data = JSON.parse(localData);
- console.log("Data: ",data);
-
- if(data.length > 0){
-   songs = data;
- }
-
- // Render the list on the screen
-   refreshList();
-
-}
-
-
-init();
